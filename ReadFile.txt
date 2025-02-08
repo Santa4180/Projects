@@ -1,0 +1,100 @@
+Certainly! Here’s a brief overview of file handling and Object-Oriented Programming (OOP) in C++:
+
+File Handling in C++
+
+File handling in C++ allows you to create, read, write, and manipulate files. The <fstream> library is commonly used for this purpose. Here are the basic classes:
+
+ifstream: Stream class to read from files.
+ofstream: Stream class to write to files.
+fstream: Stream class to both read from and write to files.
+Example: Writing to a File
+#include <iostream>
+#include <fstream>
+
+int main() {
+    std::ofstream myfile("example.txt");
+    if (myfile.is_open()) {
+        myfile << "Hello, file handling in C++!\n";
+        myfile.close();
+    } else {
+        std::cout << "Unable to open file";
+    }
+    return 0;
+}
+
+Example: Reading from a File
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    std::ifstream myfile("example.txt");
+    std::string line;
+    if (myfile.is_open()) {
+        while (getline(myfile, line)) {
+            std::cout << line << '\n';
+        }
+        myfile.close();
+    } else {
+        std::cout << "Unable to open file";
+    }
+    return 0;
+}
+
+Object-Oriented Programming (OOP) in C++
+
+OOP is a programming paradigm based on the concept of "objects", which can contain data and methods. The four main principles of OOP are:
+
+Encapsulation: Bundling data and methods that operate on the data within one unit, e.g., a class.
+Abstraction: Hiding complex implementation details and showing only the necessary features.
+Inheritance: Creating new classes from existing ones, inheriting attributes and behaviors.
+Polymorphism: Allowing objects to be treated as instances of their parent class rather than their actual class.
+Example: Basic Class and Object
+#include <iostream>
+
+class Car {
+public:
+    std::string brand;
+    std::string model;
+    int year;
+
+    void displayInfo() {
+        std::cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << std::endl;
+    }
+};
+
+int main() {
+    Car car1;
+    car1.brand = "Toyota";
+    car1.model = "Corolla";
+    car1.year = 2020;
+
+    car1.displayInfo();
+    return 0;
+}
+
+Example: Inheritance
+#include <iostream>
+
+class Vehicle {
+public:
+    std::string brand = "Ford";
+    void honk() {
+        std::cout << "Tuut, tuut!\n";
+    }
+};
+
+class Car : public Vehicle {
+public:
+    std::string model = "Mustang";
+};
+
+int main() {
+    Car myCar;
+    myCar.honk();
+    std::cout << myCar.brand + " " + myCar.model << std::endl;
+    return 0;
+}
+
+
+For more detailed explanations and examples, you can visit W3Schools C++ Tutorial. They provide comprehensive guides and interactive examples to help you understand these concepts better.
